@@ -13,15 +13,14 @@ import java.io.IOException;
 import java.io.StringWriter;
 
 public class Department {
-
     private final Long id;
     private final String name;
     private final String location;
 
     @JsonCreator
     public Department(@JsonProperty("id") final Long id,
-                    @JsonProperty("name") final String name,
-                    @JsonProperty("location") final String location) {
+                      @JsonProperty("fullName") final String name,
+                      @JsonProperty("position") final String location) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -62,7 +61,6 @@ public class Department {
                 .add("location", location)
                 .toString();
     }
-
 
     public static class Parser {
         private static ObjectMapper mapper = new ObjectMapper();
